@@ -1,7 +1,6 @@
 .
 ├── README.md
-├── finals_ltp.csv
-├── weights.csv                # percent in banknifty
+├── finals_ltp.csv             # official intraday data
 ├── bn_official.csv            # official index
 ├── cm_index_mcap_weighted.csv # constructed index 
 ├── cm_index_te_min.csv        # method B
