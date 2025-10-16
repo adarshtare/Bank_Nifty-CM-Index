@@ -88,7 +88,7 @@ $$
 **Intuition:**  
 - ( P_i(t) ): Price of stock *i* at minute *t*.  
 - ( w_i ): Stock’s relative importance or free-float weight.  
-- ( RawCM}(t) ): Weighted sum representing synthetic index movement.  
+- ( RawCM(t) ): Weighted sum representing synthetic index movement.  
 - Level alignment ensures the constructed series sits on the same numerical scale as the official BankNifty.
 
 
