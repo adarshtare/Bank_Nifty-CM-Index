@@ -95,6 +95,25 @@ Where:
 - ( I(t) ) — official BankNifty index  
 - ( w_i ) — learned stock weights  
 
+### ⚙️ Ridge-Regression Formulation
+
+We solve the ridge-regularized least-squares problem:
+
+$$
+\min_{w} \; \lVert y - Xw \rVert_2^2 + \lambda \lVert w \rVert_2^2
+$$
+
+Taking the derivative and setting to zero gives:
+
+$$
+(X^{\top} X + \lambda I) w = X^{\top} y
+$$
+
+Thus:
+
+$$
+w = (X^{\top} X + \lambda I)^{-1} X^{\top} y
+$$
 
 ---
 
