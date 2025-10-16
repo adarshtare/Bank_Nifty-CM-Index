@@ -5,12 +5,12 @@ Rebuild a **BankNifty‑like cash‑market index** from constituent bank stock p
 ---
 
 ## 1) Overview
-This project reconstructs the **BankNifty Index** using per‑minute LTP data from its 12 constituent banks. Instead of fixed market‑cap weights or PCA loadings, the model learns **data‑driven weights** \( w_i \) by minimizing the **tracking error** between the official BankNifty and a weighted combination of constituent stock prices.
+This project reconstructs the **BankNifty Index** using per‑minute LTP data from its 12 constituent banks. Instead of fixed market‑cap weights or PCA loadings, the model learns **data‑driven weights** $$ \( w_i \) $$ by minimizing the **tracking error** between the official BankNifty and a weighted combination of constituent stock prices.
 
 ---
 
 ## 2) Objective Formulation
-We seek non‑negative weights \( w_i \) (summing to 1) that make the constructed index track the official index \( I(t) \) as closely as possible over a calibration window \( \mathcal{T} \):
+We seek non‑negative weights $$ \( w_i \) $$(summing to 1) that make the constructed index track the official index $$ \( I(t) \) $$ as closely as possible over a calibration window $$ \( \mathcal{T} \) $$ :
 
 $$
 \[
@@ -19,8 +19,8 @@ $$
 $$
 
 where:
-- $$\( P_i(t) \): LTP of stock *i* at minute *t*$$  
-- \( I(t) \): official BankNifty index value at minute *t*  
+- $$ \( P_i(t) \): LTP of stock *i* at minute *t* $$  
+- $$ \( I(t) \): official BankNifty index value at minute *t* $$
 
 The constructed index is then given by:
 
