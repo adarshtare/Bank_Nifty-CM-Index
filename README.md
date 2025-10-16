@@ -183,7 +183,7 @@ AUBANK,0.0015
 2. Open `constructing_index.ipynb`:
    - Set `BN_OFFICIAL_PATH = "bn_official.csv"` if you want alignment.
    - Optionally place your `weights.csv` next to the notebook.
-   - Run all cells → produces `cm_index_from_ltp.csv` (or `cm_index_mcap_weighted.csv`).
+   - Run all cells → produces `cm_index_mcap_weighted.csv`.
 
 ---
 
