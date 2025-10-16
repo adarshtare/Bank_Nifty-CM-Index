@@ -70,7 +70,7 @@ $$
 
 ### Level Alignment
 
-If an official index series \( B_{\text{off}}(t) \) is available, align the levels at the first common time \( t_0 \):
+If an official index series ( B_{off}(t) ) is available, align the levels at the first common time \( t_0 \):
 
 $$
 \text{CM}(t) = \text{RawCM}(t) \times 
