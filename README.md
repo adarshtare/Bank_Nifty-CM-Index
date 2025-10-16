@@ -57,26 +57,48 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 ---
 
 ## 4) Methodology
-### 4.1 Cash‑Market (CM) index from LTPs
-Let \(P_i(t)\) be per‑minute LTP of stock *i* and \(w_i\) its free‑float weight (\(\sum_i w_i = 1\)). The raw CM index is
+
+### 4.1 Cash-Market (CM) Index from LTPs
+
+Let each stock *i* have a per-minute last traded price \( P_i(t) \) and a corresponding weight \( w_i \),  
+such that the total weights sum to one:
+
 $$
-\[
-\text{RawCM}(t) = \sum_i w_i\,P_i(t).
-\]
+\sum_i w_i = 1
 $$
 
-**Level alignment:** If an official series \(B_{\text{off}}(t)\) is available, align levels at the first overlapping bar \(t_0\):
+The raw constructed index is given by:
+
 $$
-\[
-\text{CM}(t) = \text{RawCM}(t) \times \frac{B_{\text{off}}(t_0)}{\text{RawCM}(t_0)}.
-\]
+\text{RawCM}(t) = \sum_i w_i\, P_i(t)
 $$
-If there is no official series, produce **Base‑100**:
+
+---
+
+### Level Alignment
+
+If an official index series \( B_{\text{off}}(t) \) is available, align the levels at the first common time \( t_0 \):
+
 $$
-\[
-\text{CM}(t) = 100 \times \frac{\text{RawCM}(t)}{\text{RawCM}(t_0)}.
-\]
+\text{CM}(t) = \text{RawCM}(t) \times 
+\frac{B_{\text{off}}(t_0)}{\text{RawCM}(t_0)}
 $$
+
+If there is no official series, produce a **Base-100** version:
+
+$$
+\text{CM}(t) = 100 \times 
+\frac{\text{RawCM}(t)}{\text{RawCM}(t_0)}
+$$
+
+---
+
+**Intuition:**  
+- \( P_i(t) \): Price of stock *i* at minute *t*.  
+- \( w_i \): Stock’s relative importance or free-float weight.  
+- \( \text{RawCM}(t) \): Weighted sum representing synthetic index movement.  
+- Level alignment ensures the constructed series sits on the same numerical scale as the official BankNifty.
+
 
 ## 4) Methodology
 
