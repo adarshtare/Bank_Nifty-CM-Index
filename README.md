@@ -42,7 +42,7 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 - **Columns:** `index, date, time, exchange, name, ltp, last_trade_qty, total_trade_amount, total_trade_qty, source_file`
 - **Series of interest:** `ltp` for official BankNifty level.
 
-### `cm_index_from_ltp.csv`
+### `cm_index_mcap_weighted.csv`
 - **Columns:** `timestamp, cm_index`
 - **Rows:** (demonstrative export of a long multi‑day run).
 
