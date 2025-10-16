@@ -44,7 +44,7 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 
 ### `cm_index_from_ltp.csv`
 - **Columns:** `timestamp, cm_index`
-- **Rows:** ~365k (demonstrative export of a long multi‑day run).
+- **Rows:** (demonstrative export of a long multi‑day run).
 
 > **Note:** Missing LTPs at the right edge are expected on partial last minutes; the constructor code uses a light **forward fill** for single‑minute gaps.
 
@@ -205,30 +205,4 @@ AUBANK,0.0015
 
 ---
 
-## 9) Notes & pitfalls
-- **No explicit timestamps** in `finals_ltp.csv`: minute order is implied by row number. If you need wall‑clock time, merge `date/time` before pivoting.
-- **Constituent changes** (rebalances, inclusions/exclusions) need weight updates; otherwise replication will drift.
-- **Exchange filter** must be consistent (`NSECM`). Mixing cash and futures will corrupt the series.
-- **Official series alignment:** ensure `bn_official.csv` corresponds to the **same minute run** (same trading days and session boundaries) for a fair comparison.
 
----
-
-## 10) FAQ
-**Q: Why not use the NSE base‑value formula directly?**  
-Because we don’t have up‑to‑date per‑constituent **free‑float market caps** every minute. Using **weights×LTP** reproduces the *shape* while **level‑alignment** restores the *level*. When official series isn’t available, **Base‑100** is a standard surrogate.
-
-**Q: Why not use futures data to compute the index?**  
-Futures are **derivatives** of the index, not its components; using them to *define* the index is circular. We build a **cash‑market** index from the underlying **stocks**.
-
-**Q: Why do I see tiny end‑of‑day wiggles?**  
-Low liquidity minutes, partial last bars, or uneven availability can cause fluctuations. Forward‑fill (1 minute) reduces this; for stricter smoothing, consider a 3–5 minute median on LTPs *after* constructing returns (be careful not to over‑smooth).
-
----
-
-## 11) License & attribution
-- Replace this section with your chosen license (MIT/BSD‑3‑Clause/Apache‑2.0).
-- Data belongs to its respective sources (NSE trade data/your vendor).
-
----
-
-## 12) Maintainers
