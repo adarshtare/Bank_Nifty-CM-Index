@@ -1,7 +1,7 @@
 
 
 
-# BankNifty Constructing Cash Market Index
+# Constructing BankNifty Cash Market Index
 
 Rebuild a **BankNifty‑like cash‑market index** from per‑minute **LTP** (last traded price) of constituent bank stocks, compare it with the official Bank Nifty series, and export a constructed index.
 
