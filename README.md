@@ -146,7 +146,7 @@ $$
 4. Compute **RawCM = X·w**.
 5. If `bn_official.csv` is provided, **align levels** at the **first overlapping bar**; else **Base‑100**.
 6. **PCA fallback** kicks in automatically when no valid weights exist.
-7. **Save** the constructed series (e.g., `cm_index_from_ltp.csv`).
+7. **Save** the constructed series (e.g., `cm_index_mcap_weighted.csv`).
 
 ---
 
