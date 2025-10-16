@@ -46,7 +46,6 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 - **Columns:** `timestamp, cm_index`
 - **Rows:** (demonstrative export of a long multi‑day run).
 
-> **Note:** Missing LTPs at the right edge are expected on partial last minutes; the constructor code uses a light **forward fill** for single‑minute gaps.
 
 ---
 
