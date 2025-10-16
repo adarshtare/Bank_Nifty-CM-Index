@@ -12,12 +12,14 @@ This project reconstructs the **BankNifty Index** using per‑minute LTP data fr
 ## 2) Objective Formulation
 We seek non‑negative weights \( w_i \) (summing to 1) that make the constructed index track the official index \( I(t) \) as closely as possible over a calibration window \( \mathcal{T} \):
 
+$$
 \[
 \min_{w \ge 0,\; \sum_i w_i = 1} \sum_{t \in \mathcal{T}} \Big( I(t) - \sum_i w_i P_i(t) \Big)^2
 \]
+$$
 
 where:
-- \( P_i(t) \): LTP of stock *i* at minute *t*  
+- $$\( P_i(t) \): LTP of stock *i* at minute *t*$$  
 - \( I(t) \): official BankNifty index value at minute *t*  
 
 The constructed index is then given by:
