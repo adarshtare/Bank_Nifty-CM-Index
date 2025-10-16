@@ -30,6 +30,7 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 ## 2) Repository contents
 - `making_dataset.ipynb` — builds the constituent‑minute panel from raw CSVs under a folder (e.g., `data/`).
 - `constructing_index.ipynb` — constructs the cash‑market index from `finals_ltp.csv`, optionally aligns to `bn_official.csv`, and writes an output index CSV.
+- `making_dataset.ipynb`   — code cells for making dataset
 - `finals_ltp.csv` — wide matrix of per‑minute LTPs, columns are tickers (12 banks).
 - `bn_official.csv` — official BankNifty minute file (contains `ltp` among other columns).
 - `cm_index_from_ltp.csv` — sample constructed index export (`timestamp, cm_index`).
