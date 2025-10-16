@@ -16,7 +16,7 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
   - **PCA fallback weights** (first principal component of minute **log‑returns**) when official/free‑float weights are missing.
 - **Level‑aligns** the constructed series to the **official** BankNifty (`bn_official.csv`) at the **first overlapping bar** (divisor surrogate). If no official series is provided, produces a **Base‑100** index.
 
-> **Why?** Validate replication quality, diagnose deviations (weights, alignment, missing constituents), and build a robust CM index even when you don’t have up‑to‑the‑minute official weights.
+
 
 ---
 
