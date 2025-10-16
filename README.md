@@ -1,14 +1,7 @@
-.
-├── README.md
-├── finals_ltp.csv             # official intraday data
-├── bn_official.csv            # official index
-├── cm_index_mcap_weighted.csv # constructed index 
-├── cm_index_te_min.csv        # method B
-├── constructing_index.ipynb   # code cells for constructing index
-└── making_dataset.ipynb       # code cells for making dataset
 
 
-# BankNifty Cash‑Market Index (CM) — README
+
+# BankNifty Constructing Cash Market Index
 
 Rebuild a **BankNifty‑like cash‑market index** from per‑minute **LTP** (last traded price) of constituent bank stocks, compare it with the official Bank Nifty series, and export a constructed index.
 
@@ -33,7 +26,8 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 - `making_dataset.ipynb`   — code cells for making dataset
 - `finals_ltp.csv` — wide matrix of per‑minute LTPs, columns are tickers (12 banks).
 - `bn_official.csv` — official BankNifty minute file (contains `ltp` among other columns).
-- `cm_index_from_ltp.csv` — sample constructed index export (`timestamp, cm_index`).
+- `cm_index_mcap_weighted.csv` — sample constructed index export (`timestamp, cm_index`).
+- `cm_index_te_min.csv` — generated index
 
 ---
 
@@ -94,13 +88,13 @@ $$
 ---
 
 **Intuition:**  
-- \( P_i(t) \): Price of stock *i* at minute *t*.  
-- \( w_i \): Stock’s relative importance or free-float weight.  
-- \( \text{RawCM}(t) \): Weighted sum representing synthetic index movement.  
+- ( P_i(t) ): Price of stock *i* at minute *t*.  
+- ( w_i ): Stock’s relative importance or free-float weight.  
+- ( RawCM}(t) ): Weighted sum representing synthetic index movement.  
 - Level alignment ensures the constructed series sits on the same numerical scale as the official BankNifty.
 
 
-## 4) Methodology
+## 4.2 Ridge Regularization
 
 We estimate the weights **w** that make our constructed index best replicate the official BankNifty.
 
