@@ -59,25 +59,42 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 ## 4) Methodology
 ### 4.1 Cash‑Market (CM) index from LTPs
 Let \(P_i(t)\) be per‑minute LTP of stock *i* and \(w_i\) its free‑float weight (\(\sum_i w_i = 1\)). The raw CM index is
+$$
 \[
 \text{RawCM}(t) = \sum_i w_i\,P_i(t).
 \]
+$$
 
 **Level alignment:** If an official series \(B_{\text{off}}(t)\) is available, align levels at the first overlapping bar \(t_0\):
+$$
 \[
 \text{CM}(t) = \text{RawCM}(t) \times \frac{B_{\text{off}}(t_0)}{\text{RawCM}(t_0)}.
 \]
+$$
 If there is no official series, produce **Base‑100**:
+$$
 \[
 \text{CM}(t) = 100 \times \frac{\text{RawCM}(t)}{\text{RawCM}(t_0)}.
 \]
+$$
 
-### 4.2 PCA fallback (when weights unknown)
-- Compute minute **log‑returns** of the LTP matrix \(X\): \(R = \Delta\log X\).
-- Estimate covariance of \(R\), take the **leading eigenvector** \(v_1\), and set non‑negative weights \(w_i \propto |(v_1)_i|\), renormalized to simplex.
-- Then apply the same RawCM and scaling as above.
+## 4) Methodology
 
-> PCA captures the dominant co‑movement direction across constituents, providing a reasonable surrogate when official weights are missing.
+We estimate the weights **w** that make our constructed index best replicate the official BankNifty.
+
+The optimization problem is:
+
+$$
+\min_{w \ge 0,\; \sum_i w_i = 1}
+\sum_{t \in \mathcal{T}}
+\left( I(t) - \sum_i w_i\, P_i(t) \right)^2
+$$
+
+Where:  
+- ( P_i(t) ) — LTP of stock *i* at minute *t*  
+- ( I(t) ) — official BankNifty index  
+- ( w_i ) — learned stock weights  
+
 
 ---
 
