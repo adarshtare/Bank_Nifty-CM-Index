@@ -144,7 +144,7 @@ $$
 3. **Intersect** symbols between weights and data; **renormalize** the weights to sum to 1; **forward‑fill** tiny gaps.
 4. Compute **RawCM = X·w**.
 5. If `bn_official.csv` is provided, **align levels** at the **first overlapping bar**; else **Base‑100**.
-6. **PCA fallback** kicks in automatically when no valid weights exist.
+6. **Ridge regularization** kicks in automatically when no valid or official weights are available, estimating stable data-driven weights that minimize tracking error against the official index.
 7. **Save** the constructed series (e.g., `cm_index_mcap_weighted.csv`).
 
 ---
