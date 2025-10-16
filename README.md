@@ -139,7 +139,7 @@ $$
 4. **Export** the wide table to `finals_ltp.csv`.
 
 ### 5.2 `constructing_index.ipynb`
-1. **Load** `finals_ltp.csv` and optional `weights.csv`.
+1. **Load** `finals_ltp.csv`.
 2. If `weights.csv` is missing, **use fallback weights** embedded in the notebook (HDFCBANK, ICICIBANK, SBIN, etc.).
 3. **Intersect** symbols between weights and data; **renormalize** the weights to sum to 1; **forward‑fill** tiny gaps.
 4. Compute **RawCM = X·w**.
