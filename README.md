@@ -13,8 +13,7 @@ This repo contains two notebooks and a few CSV artifacts that together form a sm
 - **Ingests raw minute files** for NSE cash market and builds a *wide* table `finals_ltp.csv` with **one column per bank** (AUBANK, AXISBANK, …, SBIN) and rows aligned by minute.
 - **Constructs a composite index** from those columns using:
   - **Free‑float market‑cap weights** (preferred, from `weights.csv` or embedded fallback), and
-  - **PCA fallback weights** (first principal component of minute **log‑returns**) when official/free‑float weights are missing.
-- **Level‑aligns** the constructed series to the **official** BankNifty (`bn_official.csv`) at the **first overlapping bar** (divisor surrogate). If no official series is provided, produces a **Base‑100** index.
+  - **Ridge-regularized weights** are computed by solving a data-driven least-squares optimization that fits the official BankNifty using constituent stock prices, with an L2 penalty ensuring stability and smoothness in weights.
 
 
 
